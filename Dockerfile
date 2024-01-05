@@ -1,5 +1,5 @@
 FROM python:alpine
-COPY bookstore-api.py requirements.txt ./app/
+COPY  . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 EXPOSE 80

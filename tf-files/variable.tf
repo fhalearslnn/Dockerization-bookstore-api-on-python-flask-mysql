@@ -9,12 +9,6 @@ variable "git-token" {
 variable "key-name" {
   default = "firstkey"
 }
-variable "ec2-instance_type" {
+variable "ec2-instance-type" {
   default = "t2.micro"
-}
-variable "db-password" {
-  default = "Clarusway_1"
-}
-variable "db-root" {
-  default = "admin1234"
 }

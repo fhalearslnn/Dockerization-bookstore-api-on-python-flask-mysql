@@ -42,18 +42,17 @@ resource "aws_security_group" "prj-sec-grp" {
   
 
 resource "aws_instance" "prj-docker-instance" {
-    ami = data.al2023
-    instance_type = var.ec2-instance_type
+    ami = data.aws_ami.al2023.id
+    instance_type = var.ec2-instance-type
     key_name = var.key-name
     vpc_security_group_ids = [ aws_security_group.prj-sec-grp.id ]
     tags = {
       Name = "Web Server of Bookstore"
     }
-    user_data = base64encode(templatefile("user-data.sh", { user-data-git-token = var.git-token, user-data-git-name = var.git-name, db-password = var.db-password, db-root-password = var.db-root }))
-    
+    user_data = base64encode(templatefile("user-data.sh", { user-data-git-token = var.git-token, user-data-git-name = var.git-name }))
+
   
 }
 
 output "myec2-public-ip" {
-  value = "http://${aws_instance.docker_instance.public_dns}"
-}
+  value = "http://${aws_instance.prj-docker-instance.public_dns}"

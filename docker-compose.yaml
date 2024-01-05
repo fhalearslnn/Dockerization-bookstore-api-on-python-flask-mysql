@@ -13,7 +13,7 @@ services:
       - haleynet
 
   myapp:
-    image: fhalearslan/bookstoreapi:1.0
+    image: bookstore-api:latest
     container_name: myapp
     restart: always
     depends_on:
@@ -24,4 +24,4 @@ services:
       - haleynet
 
   networks:
-    haleynet:    
+    haleynet:      
