@@ -2,7 +2,7 @@
 from flask import Flask, jsonify, abort, request, make_response
 from flaskext.mysql import MySQL
 
-# Create an object named app 
+# Create an object named app ....
 app = Flask(__name__)
 
 # Configure sqlite database
